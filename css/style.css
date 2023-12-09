@@ -39,13 +39,6 @@ body {
   padding: 0px;
 }
 
-/* Mobile display */
-@media (max-width:600px){
-  #fromages {
-    margin-top: 154px;
-  }
-}
-
 /* Print */
 @media print {
   body {
