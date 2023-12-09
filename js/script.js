@@ -73,17 +73,26 @@ function supprFromage(event, line) {
   calcTotal();
 }
 
+// Screen width
+var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
 // Charger les prix
 fetch('prix.json')
 .then(response => response.json())
 .then(data => {
 
   FROMAGES = data;
+  let froLength = FROMAGES.length;
 
-  for (let i = 0; i < FROMAGES.length; i++) {
+  for (let i = 0; i < froLength; i++) {
     let fromage = FROMAGES[i];
 
     let col = document.getElementById('col'+(i%3+1));
+
+    // Mobile display
+    if (width <= 600){
+      col = document.getElementById('col'+(Math.floor(i/(Math.floor(froLength/3))+1)));
+    }
 
     // On génère la carte qui correspond au fromage
     var fromageHTML = `
