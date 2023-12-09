@@ -81,13 +81,13 @@ function ajoutFromage(event, form) {
   // capte le fromage
   let fromage = FROMAGES.find((fromage) => fromage.code==form.dataset.code);
 
-  let prix = fromage.unite == 'kg' ? input.value*0.001*fromage.tarif : input.value*fromage.tarif;
+  let prix = input.value*fromage.tarif;
   // on ajoute la ligne dans la Commande
   var commandeLine = `
     <tr data-code="${fromage.code}">
       <td>${fromage.code}</td>
       <td>${fromage.nom.length > 25 ? fromage.nom.substring(0,24)+"..." : fromage.nom}</td>
-      <td>${input.value} ${fromage.unite == 'kg' ? 'gr.' : 'pcs'}</td>
+      <td>${input.value} ${fromage.unite}</td>
       <td class="prix">${prix.toFixed(2)}</td>
       <td><a class="suppr w3-button w3-hover-white w3-text-grey w3-large material-symbols-outlined"
         onclick="return supprFromage(event, this.parentElement.parentElement)">delete</a></td>
@@ -121,22 +121,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let fromage = FROMAGES[i];
 
     let col = document.getElementById('col'+(i%3+1));
-    let stock = fromage.unite == 'pcs' ? `${fromage.cdt} pcs (${fromage.poids * 1000}g)` : `${fromage.poids * fromage.cdt}kg`;
 
     // On génère la carte qui correspond au fromage
     var fromageHTML = `
-    <div class="w3-card w3-round w3-margin">
+    <div class="fromage-card w3-card w3-round w3-margin">
       <header class="w3-container w3-cell-row w3-padding">
         <h4 class="w3-cell">${fromage.nom}</h4>
         <h4 class="w3-cell">${fromage.tarif}€/${fromage.unite}</h4>
       </header>
-      <div class="w3-container">
+      <div class="w3-container w3-padding">
         <form onsubmit="return ajoutFromage(event, event.target);" data-code="${fromage.code}">
-          <input type=number step=".01" class="w3-input w3-border" /> ${fromage.unite == 'kg' ? 'gr.' : 'pcs'}
+          <input type=number step=".01" class="w3-input w3-border" /> ${fromage.unite}
           <a type="submit"
             onclick="return ajoutFromage(event, this.parentElement);"
             class="ajout w3-button w3-circle w3-ripple w3-deep-orange w3-hover-teal">+</a>
-          <p class="stock"> Stock total: ${stock}</p>
           </form>
       </div>
     </div>

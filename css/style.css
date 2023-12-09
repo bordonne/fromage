@@ -31,8 +31,8 @@ body {
   width: 100px;
 }
 
-.stock {
-  font-size: 10px;
+.fromage-card {
+  padding-bottom: 8px;
 }
 
 #commandeTable .suppr {
