@@ -1,0 +1,66 @@
+/* Custom css */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-size: 15px 15px;
+  background-image:
+    linear-gradient(to right, #fbfbfb 1px, transparent 1px),
+    linear-gradient(to bottom, #fbfbfb 1px, transparent 1px);
+}
+
+#fromages {
+    margin-top: 39px;
+}
+
+#fromages .w3-card {
+  background: white;
+}
+
+.ajout {
+  padding: 6px 11px;
+}
+
+.ajout.w3-disabled {
+  pointer-events: none;
+}
+
+#fromages .w3-input {
+  display: inline;
+  width: 100px;
+}
+
+.stock {
+  font-size: 10px;
+}
+
+#commandeTable .suppr {
+  padding: 0px;
+}
+
+/* Mobile display */
+@media (max-width:600px){
+  #fromages {
+    margin-top: 154px;
+  }
+}
+
+/* Print */
+@media print {
+  body {
+    visibility: hidden;
+  }
+  #fromages {
+    display: none;
+  }
+  #commande {
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #commande .suppr, #sauvegarder {
+    visibility: hidden;
+  }
+}

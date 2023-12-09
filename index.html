@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Page fromage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧀</text></svg>">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- JS -->
+    <script type="text/javascript" src="js/script.js"></script>
+  </head>
+  <body>
+    <header>
+
+    <!-- Navigation (Stays on Top) -->
+    <div id="navigation" class="w3-top w3-bar w3-teal w3-text-white">
+      <a href="#" class="w3-bar-item w3-button w3-mobile w3-hover-deep-orange">🧀</a>
+      <a href="#fromages" class="w3-bar-item w3-button w3-mobile w3-hover-deep-orange">Fromages</a>
+      <a href="#commande" class="w3-bar-item w3-button w3-mobile w3-hover-deep-orange">Commande<span id="nbcmd"></span></a>
+      <a href="mailto:***REMOVED***" class="w3-bar-item w3-button w3-mobile w3-hover-deep-orange">@</a>
+    </div>
+    </header>
+    <div id="fromages">
+      <div class="w3-container w3-padding-32">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Fromages</h3>
+      </div>
+      <div class="w3-row">
+        <div id="col1" class="w3-col s4 w3-mobile">
+        </div>
+        <div id="col2" class="w3-col s4 w3-mobile">
+        </div>
+        <div id="col3" class="w3-col s4 w3-mobile">
+        </div>
+      </div>
+    </div>
+    <div id="commande">
+      <div class="w3-container w3-padding-32">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Commande</h3>
+      </div>
+      <div class="w3-row">
+        <table id="commandeTable" class="w3-table w3-white w3-bordered w3-col s8 w3-mobile">
+          <tr>
+            <th>Code</th>
+            <th>Nom</th>
+            <th>Quantité</th>
+            <th>Prix(€)</th>
+            <th></th>
+          </tr>
+        </table>
+        <div class="w3-col s4 w3-container w3-mobile">
+          <div class="w3-border-bottom w3-cell-row w3-border-light-grey">
+            <h3 class="w3-cell">Total</h3>
+            <h3 id="total" class="w3-cell"></h3>
+          </div>
+          <p>
+            <label class="w3-text-grey">Nom ou email</label>
+            <input class="w3-input w3-border" type="text" required="">
+          </p>
+          <p>
+            <label class="w3-text-grey">Commentaire</label>
+            <textarea class="w3-input w3-border" style="resize:none"></textarea>
+          </p>
+          <button id="sauvegarder" class="w3-button w3-teal w3-hover-deep-orange"
+           onclick="window.print()">Sauvegarder</button>
+        </div>
+      </div>
+    </div>
+    <div class="w3-container w3-margin-top w3-bar w3-blue-grey">
+      bordonne.com © 2023
+    </div>
+  </body>
+</html>
