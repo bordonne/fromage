@@ -103,7 +103,7 @@ fetch('prix.json')
       </header>
       <div class="w3-container w3-padding">
         <form onsubmit="return ajoutFromage(event, event.target);" data-code="${fromage.code}">
-          <input type=number name="poids" step=".01" class="w3-input w3-border" /> ${fromage.unite}
+          <input type=number name="poids" step=".001" class="w3-input w3-border" /> ${fromage.unite}
           <a type="submit"
             onclick="return ajoutFromage(event, this.parentElement);"
             class="ajout w3-button w3-circle w3-ripple w3-deep-orange w3-hover-teal">+</a>
