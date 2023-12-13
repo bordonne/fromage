@@ -82,16 +82,16 @@ fetch('prix.json')
 .then(data => {
 
   FROMAGES = data;
-  let froLength = FROMAGES.length;
 
-  for (let i = 0; i < froLength; i++) {
+  for (let i = 0; i < FROMAGES.length; i++) {
     let fromage = FROMAGES[i];
 
     let col = document.getElementById('col'+(i%3+1));
 
-    // Mobile display
-    if (width <= 600){
-      col = document.getElementById('col'+(Math.floor(i/(Math.floor(froLength/3))+1)));
+    if (i==21) {
+      col = document.getElementById('col3');
+    } else if (width <= 600){
+      col = document.getElementById('col'+(Math.floor((i/7)+1)));
     }
 
     // On génère la carte qui correspond au fromage

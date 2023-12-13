@@ -1,6 +1,8 @@
 [
     { "code": 48845, "nom": "Appenzeller Extra Lustenberger",
       "unite": "kg", "tarif": 22 },
+    { "code": "meme", "nom": "Bleu des Causses La Mémé",
+      "unite": "kg", "tarif": 14 },
     { "code": 18718, "nom": "Brezain Edelmont",
       "unite": "kg", "tarif": 16 },
     { "code": 22509, "nom": "Camembert de Bufflonne Past.",
@@ -32,7 +34,7 @@
     { "code": 18709, "nom": "Raclette Lait Cru +8 sem Ermitage",
       "unite": "kg", "tarif": 13 },
     { "code": 18736, "nom": "Reblochon AOP Fruitier Thones",
-      "unite": "pcs", "tarif": 15 },
+      "unite": "kg", "tarif": 15 },
     { "code": 21472, "nom": "Roquefort Vieux Berger 1/2",
       "unite": "kg", "tarif": 23 },
     { "code": 48932, "nom": "Sablé de Wissant Gamme Crémier",
