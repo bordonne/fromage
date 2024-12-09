@@ -4,18 +4,42 @@ html {
 }
 
 body {
+  font-size: 14px;
+  color: #152B70;
   background-size: 15px 15px;
   background-image:
     linear-gradient(to right, #fbfbfb 1px, transparent 1px),
     linear-gradient(to bottom, #fbfbfb 1px, transparent 1px);
 }
 
+h4 {
+  font-size: 14px;
+}
+
+#navigation {
+  background-color: #152B70;
+  color: #ff7f6d;
+}
+
+#navigation .w3-button:hover {
+  background-color: #ff7f6d !important;
+  color: #fff !important;
+}
+
 #fromages {
     margin-top: 39px;
 }
 
+#fromages h3 {
+  color: #ff7f6d;
+}
+
 #fromages .w3-card {
   background: white;
+}
+
+.prix {
+  text-align: right;
 }
 
 .ajout {
@@ -33,6 +57,16 @@ body {
 
 .fromage-card {
   padding-bottom: 8px;
+}
+
+.fromage-card img {
+  max-height: 65px;
+  max-width: 75px;
+  margin-top: 8px;
+}
+
+.fromage-card form {
+  padding-left: 16px;
 }
 
 #commandeTable .suppr {
