@@ -66,7 +66,8 @@ h4 {
 }
 
 .fromage-card header {
-  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #commande-table .suppr {

@@ -146,9 +146,9 @@ fetch('prix.json')
         </div>
 
         <div class="w3-container w3-cell">
-          <header class="w3-cell-row">
-            <h4 class="w3-cell nom">${fromage.nom}</h4>
-            <h4 class="w3-cell prix">${fromage.tarif}€/${fromage.unite}</h4>
+          <header>
+            <h4 class="nom">${fromage.nom}</h4>
+            <h4 class="prix">${fromage.tarif}€/${fromage.unite}</h4>
           </header>
           <form onsubmit="return ajoutFromage(event, event.target);" data-code="${fromage.code}">
             <input type=number name="poids" step=".001" class="w3-input w3-border"
