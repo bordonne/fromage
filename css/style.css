@@ -16,12 +16,12 @@ h4 {
   font-size: 14px;
 }
 
-#navigation {
+#navigation, #send-email, #sauvegarder {
   background-color: #152B70;
-  color: #ff7f6d;
+  color: #fff;
 }
 
-#navigation .w3-button:hover {
+#navigation .w3-button:hover, #send-email:hover, #sauvegarder:hover {
   background-color: #ff7f6d !important;
   color: #fff !important;
 }
@@ -69,7 +69,7 @@ h4 {
   padding-left: 16px;
 }
 
-#commandeTable .suppr {
+#commande-table .suppr {
   padding: 0px;
 }
 

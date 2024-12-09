@@ -2,9 +2,11 @@
 
 let FROMAGES = [];
 
+const contactEmail = "fromage2024@bordonne.com";
+
 // Met a jour le total de la commande
 function calcTotal() {
-  let prix = document.querySelectorAll("#commandeTable .prix");
+  let prix = document.querySelectorAll("#commande-table .prix");
   let total = 0;
 
   prix.forEach(function (pri, i) {
@@ -18,7 +20,7 @@ function calcTotal() {
 }
 
 function sortCommand() {
-  const tbody = document.querySelector('#commandeTable tbody');
+  const tbody = document.querySelector('#commande-table tbody');
 
   const rows = Array.from(tbody.querySelectorAll('tr.command-line'));
 
@@ -69,7 +71,7 @@ function ajoutFromage(event, form) {
             onclick="return supprFromage(event, this.parentElement.parentElement)">delete</a></td>
         </tr>
       `
-      let commandeTable = document.querySelector("#commandeTable tbody");
+      let commandeTable = document.querySelector("#commande-table tbody");
       commandeTable.innerHTML += commandeLine;
 
     }
@@ -93,7 +95,24 @@ function supprFromage(event, line) {
 }
 
 function sendByMail() {
-  console.log("email");
+  var info = document.getElementById("commande-info");
+  var nom = info.querySelector("input[name=nom]").value;
+  var subject = `Commande fromage ${nom}`;
+
+  var body = `<!DOCTYPE html>
+  <html>
+  <div>
+    <div>Nom : ${nom}</div>
+    <div>Email : ${info.querySelector("input[name=email]").value}</div>
+    <div>Moyen de paiement : ${info.querySelector("select[name=payment]").value}</div>
+    <div>Total : ${document.getElementById("total").innerHTML}</div>
+  </div>`;
+  body += "<table>";
+  body += document.getElementById('commande-table').innerHTML;
+  body += "</table></html>";
+
+  // Send email
+  window.location = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
 }
 
 // Screen width

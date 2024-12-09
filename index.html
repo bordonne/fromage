@@ -23,7 +23,7 @@
       <a href="#" class="w3-bar-item w3-button">🧀</a>
       <a href="#fromages" class="w3-bar-item w3-button">Fromages</a>
       <a href="#commande" class="w3-bar-item w3-button">Commande<span id="nbcmd"></span></a>
-      <a href="mailto:***REMOVED***" class="w3-bar-item w3-button">@</a>
+      <a href="mailto:fromage2024@bordonne.com" class="w3-bar-item w3-button">@</a>
     </div>
     </header>
     <div id="fromages">
@@ -44,7 +44,7 @@
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Commande</h3>
       </div>
       <div class="w3-row">
-        <table id="commandeTable" class="w3-table w3-bordered w3-col s8 w3-mobile">
+        <table id="commande-table" class="w3-table w3-bordered w3-col s8 w3-mobile">
           <thead>
             <tr>
               <th>Code</th>
@@ -56,7 +56,7 @@
           <tbody>
           </tbody>
         </table>
-        <div class="w3-col s4 w3-container w3-mobile">
+        <div id="commande-info" class="w3-col s4 w3-container w3-mobile">
           <div class="w3-border-bottom w3-cell-row w3-border-light-grey">
             <h3 class="w3-cell">Total</h3>
             <h3 id="total" class="w3-cell"></h3>
@@ -80,9 +80,9 @@
             <option value="cheque">Chèque</option>
           </select>
           </p>
-          <button id="sauvegarder" class="w3-button w3-teal w3-hover-deep-orange"
+          <button id="send-email" class="w3-button"
            onclick="sendByMail()">Envoyer par mail</button>
-          <button id="sauvegarder" class="w3-button w3-teal w3-hover-deep-orange"
+          <button id="sauvegarder" class="w3-button"
            onclick="window.print()">Sauvegarder (PDF)</button>
         </div>
       </div>
