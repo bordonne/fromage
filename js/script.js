@@ -17,6 +17,23 @@ function calcTotal() {
   document.getElementById("nbcmd").innerHTML = prix.length ? ` (${prix.length})` : "";
 }
 
+function sortCommand() {
+  const tbody = document.querySelector('#commandeTable tbody');
+
+  const rows = Array.from(tbody.querySelectorAll('tr.command-line'));
+
+  // Trie les lignes par le texte de la 2ème colonne (le nom du fromage)
+  rows.sort((rowA, rowB) => {
+    const fromageA = rowA.children[1].textContent.trim().toLowerCase();
+    const fromageB = rowB.children[1].textContent.trim().toLowerCase();
+    
+    return fromageA.localeCompare(fromageB);
+  });
+
+  tbody.innerHTML = '';
+  rows.forEach(row => tbody.appendChild(row));
+}
+
 function ajoutFromage(event, form) {
   event.preventDefault();
 
@@ -52,11 +69,13 @@ function ajoutFromage(event, form) {
             onclick="return supprFromage(event, this.parentElement.parentElement)">delete</a></td>
         </tr>
       `
+      let commandeTable = document.querySelector("#commandeTable tbody");
       commandeTable.innerHTML += commandeLine;
 
     }
     // on met a jour le total
     calcTotal();
+    sortCommand();
   }
 }
 
@@ -71,6 +90,10 @@ function supprFromage(event, line) {
   input.value = "";
 
   calcTotal();
+}
+
+function sendByMail() {
+  console.log("email");
 }
 
 // Screen width

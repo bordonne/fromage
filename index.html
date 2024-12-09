@@ -45,13 +45,16 @@
       </div>
       <div class="w3-row">
         <table id="commandeTable" class="w3-table w3-white w3-bordered w3-col s8 w3-mobile">
-          <tr>
-            <th>Code</th>
-            <th>Nom</th>
-            <th>Quantité</th>
-            <th>Prix(€)</th>
-            <th></th>
-          </tr>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Nom</th>
+              <th>Quantité</th>
+              <th>Prix(€)</th>
+              <th></th>
+            </tr>
+          <tbody>
+          </tbody>
         </table>
         <div class="w3-col s4 w3-container w3-mobile">
           <div class="w3-border-bottom w3-cell-row w3-border-light-grey">
@@ -59,17 +62,28 @@
             <h3 id="total" class="w3-cell"></h3>
           </div>
           <p>
-            <label class="w3-text-grey">Nom ou email
+            <label class="w3-text-grey">Nom et prénom
               <input class="w3-input w3-border" name="nom" type="text" required="">
             </label>
           </p>
           <p>
-            <label class="w3-text-grey">Commentaire
-              <textarea class="w3-input w3-border" name="commentaire" style="resize:none"></textarea>
+            <label class="w3-text-grey">Email
+              <input class="w3-input w3-border" name="email" type="text" required="">
             </label>
           </p>
+          <p>
+          <label class="w3-text-grey">Moyen de paiement</label>
+          <select class="w3-select w3-border" name="payment">
+            <option value="" disabled selected>Choisir une option</option>
+            <option value="cash">Cash</option>
+            <option value="virement">Virement</option>
+            <option value="cheque">Chèque</option>
+          </select>
+          </p>
           <button id="sauvegarder" class="w3-button w3-teal w3-hover-deep-orange"
-           onclick="window.print()">Sauvegarder</button>
+           onclick="sendByMail()">Envoyer par mail</button>
+          <button id="sauvegarder" class="w3-button w3-teal w3-hover-deep-orange"
+           onclick="window.print()">Sauvegarder (PDF)</button>
         </div>
       </div>
     </div>
