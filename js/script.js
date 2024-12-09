@@ -129,11 +129,12 @@ fetch('prix.json')
     let fromage = FROMAGES[i];
 
     let col = document.getElementById('col'+(i%3+1));
+    let divider = Math.floor(FROMAGES.length/3);
 
-    if (i==21) {
+    if (i == (FROMAGES.length - 1)) {
       col = document.getElementById('col3');
     } else if (width <= 600){
-      col = document.getElementById('col'+(Math.floor((i/7)+1)));
+      col = document.getElementById('col'+(Math.floor(i/divider)+1));
     }
 
     // On génère la carte qui correspond au fromage
