@@ -22,38 +22,42 @@ function ajoutFromage(event, form) {
 
   // capte le nombre dans le input
   let input = form.querySelector('input');
-  if (input.value <= 0){
-    input.value = "";
-    return;
-  }
-
-  let button = form.querySelector('.ajout');
-
-  // on bloque le input et le bouton
-  input.disabled = true;
-  button.classList.add('w3-disabled', 'w3-teal');
-  button.classList.remove('w3-deep-orange');
-  button.innerHTML = "✓";
-
+ 
   // capte le fromage
   let fromage = FROMAGES.find((fromage) => fromage.code==form.dataset.code);
 
-  let prix = input.value*fromage.tarif;
-  // on ajoute la ligne dans la Commande
-  var commandeLine = `
-    <tr data-code="${fromage.code}">
-      <td>${fromage.code}</td>
-      <td>${fromage.nom.length > 25 ? fromage.nom.substring(0,24)+"..." : fromage.nom}</td>
-      <td>${input.value} ${fromage.unite}</td>
-      <td class="prix">${prix.toFixed(2)}</td>
-      <td><a class="suppr w3-button w3-hover-white w3-text-grey w3-large material-symbols-outlined"
-        onclick="return supprFromage(event, this.parentElement.parentElement)">delete</a></td>
-    </tr>
-  `
-  commandeTable.innerHTML += commandeLine;
+  let commandLine = document.querySelector(`.command-line[data-code='${fromage.code}']`);
 
-  // on met a jour le total
-  calcTotal();
+  let prix = input.value*fromage.tarif;
+
+  if (input.value === "" || input.value === "0" || input.value === "0."){
+    if (commandLine) {
+      supprFromage(event, commandLine);
+    } else {
+      return;
+    }
+  } else {
+    if (commandLine) {
+      commandLine.querySelector('.quantite').innerHTML = input.value+" "+fromage.unite;
+      commandLine.querySelector('.prix').innerHTML = prix.toFixed(2);
+    } else {
+      // On ajoute la ligne dans la Commande
+      var commandeLine = `
+        <tr class="command-line" data-code="${fromage.code}">
+          <td>${fromage.code}</td>
+          <td>${fromage.nom.length > 25 ? fromage.nom.substring(0,24)+"..." : fromage.nom}</td>
+          <td class="quantite">${input.value} ${fromage.unite}</td>
+          <td class="prix">${prix.toFixed(2)}</td>
+          <td><a class="suppr w3-button w3-hover-white w3-text-grey w3-large material-symbols-outlined"
+            onclick="return supprFromage(event, this.parentElement.parentElement)">delete</a></td>
+        </tr>
+      `
+      commandeTable.innerHTML += commandeLine;
+
+    }
+    // on met a jour le total
+    calcTotal();
+  }
 }
 
 function supprFromage(event, line) {
@@ -63,12 +67,8 @@ function supprFromage(event, line) {
   let form = document.querySelector(`form[data-code="${code}"]`);
   // reactive le form de ce fromage
   let input = form.querySelector('input');
-  let button = form.querySelector('.ajout');
   input.disabled = false;
   input.value = "";
-  button.classList.remove('w3-disabled', 'w3-teal');
-  button.classList.add('w3-deep-orange');
-  button.innerHTML = "+"
 
   calcTotal();
 }
@@ -98,17 +98,15 @@ fetch('prix.json')
     var fromageHTML = `
     <div class="fromage-card w3-card w3-round w3-margin">
       <header class="w3-container w3-cell-row w3-padding">
-        <h4 class="w3-cell">${fromage.nom}</h4>
-        <h4 class="w3-cell">${fromage.tarif}€/${fromage.unite}</h4>
+        <h4 class="w3-cell nom">${fromage.nom}</h4>
+        <h4 class="w3-cell prix">${fromage.tarif}€/${fromage.unite}</h4>
       </header>
       <div class="w3-container w3-padding">
         <form onsubmit="return ajoutFromage(event, event.target);" data-code="${fromage.code}">
-          <input type=number name="poids" step=".001" class="w3-input w3-border" /> ${fromage.unite}
-          <a type="submit"
-            onclick="return ajoutFromage(event, this.parentElement);"
-            class="ajout w3-button w3-circle w3-ripple w3-deep-orange w3-hover-teal">+</a>
+          <input type=number name="poids" step=".001" class="w3-input w3-border"
+            oninput="return ajoutFromage(event, this.parentElement);" /> ${fromage.unite}
           </form>
-      </div>
+      </div> 
     </div>
     `;
     col.innerHTML += fromageHTML;
