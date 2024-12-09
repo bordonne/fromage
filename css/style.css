@@ -65,8 +65,8 @@ h4 {
   margin-top: 8px;
 }
 
-.fromage-card form {
-  padding-left: 16px;
+.fromage-card header {
+  margin-top: 8px;
 }
 
 #commande-table .suppr {
@@ -87,7 +87,7 @@ h4 {
     left: 0;
     top: 0;
   }
-  #commande .suppr, #sauvegarder {
+  #commande .suppr, #sauvegarder, #send-email {
     visibility: hidden;
   }
 }

@@ -146,7 +146,7 @@ fetch('prix.json')
         </div>
 
         <div class="w3-container w3-cell">
-          <header class="w3-container w3-cell-row w3-padding">
+          <header class="w3-cell-row">
             <h4 class="w3-cell nom">${fromage.nom}</h4>
             <h4 class="w3-cell prix">${fromage.tarif}€/${fromage.unite}</h4>
           </header>
