@@ -139,13 +139,11 @@ fetch('prix.json')
     // On génère la carte qui correspond au fromage
     var fromageHTML = `
     <div class="fromage-card w3-card w3-round w3-margin">
-      <div class="w3-cell-row">
-
-        <div class="w3-container w3-cell" style="width:60px">
+        <div class="img-fromage">
           <img src="img/${fromage.code}.png" alt="${fromage.nom}">
         </div>
 
-        <div class="w3-container w3-cell">
+        <div class="form-fromage">
           <header>
             <h4 class="nom">${fromage.nom}</h4>
             <h4 class="prix">${fromage.tarif}€/${fromage.unite}</h4>
@@ -154,7 +152,6 @@ fetch('prix.json')
             <input type=number name="poids" step=".001" class="w3-input w3-border"
               oninput="return ajoutFromage(event, this.parentElement);" /> ${fromage.unite}
           </form>
-        </div>
       </div>
     </div>
     `;

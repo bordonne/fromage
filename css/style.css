@@ -57,12 +57,17 @@ h4 {
 
 .fromage-card {
   padding-bottom: 8px;
+  padding-right: 8px;
+}
+
+.fromage-card .img-fromage {
+  float: left;
+  margin: 10px 20px 10px 10px;
 }
 
 .fromage-card img {
   max-height: 65px;
   max-width: 75px;
-  margin-top: 8px;
 }
 
 .fromage-card header {
