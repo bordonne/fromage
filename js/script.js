@@ -99,17 +99,22 @@ function sendByMail() {
   var nom = info.querySelector("input[name=nom]").value;
   var subject = `Commande fromage ${nom}`;
 
-  var body = `<!DOCTYPE html>
-  <html>
-  <div>
-    <div>Nom : ${nom}</div>
-    <div>Email : ${info.querySelector("input[name=email]").value}</div>
-    <div>Moyen de paiement : ${info.querySelector("select[name=payment]").value}</div>
-    <div>Total : ${document.getElementById("total").innerHTML}</div>
-  </div>`;
-  body += "<table>";
-  body += document.getElementById('commande-table').innerHTML;
-  body += "</table></html>";
+  var body = `
+  *Commande* %0A%0A
+  Nom: ${nom} %0A
+  Email: ${info.querySelector("input[name=email]").value} %0A
+  Moyen de paiement: ${info.querySelector("select[name=payment]").value} %0A
+  Total: ${document.getElementById("total").innerHTML} %0A%0A
+  *Détails de la commande* %0A%0A
+  Code     Nom     Quantité     Prix %0A`;
+
+  let commandLines = document.querySelectorAll('.command-line');
+  commandLines.forEach(line => {
+    for (let i = 0; i < 4; i++) {
+      body += `${line.children[i].innerHTML}     `;
+    }
+    body += `%0A`;
+  });
 
   // Send email
   window.location = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
