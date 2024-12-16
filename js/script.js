@@ -2,7 +2,7 @@
 
 let FROMAGES = [];
 
-const contactEmail = "fromage2024@bordonne.com";
+const contactEmail = "**REDACTED**";
 
 // Met a jour le total de la commande
 function calcTotal() {
