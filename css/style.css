@@ -12,6 +12,12 @@ body {
     linear-gradient(to bottom, #fbfbfb 1px, transparent 1px);
 }
 
+h1 {
+  color: #ff7f6d;
+  font-size: 40px;
+  font-family: 'Arial Black';
+}
+
 h4 {
   font-size: 14px;
 }
